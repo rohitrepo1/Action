@@ -12,10 +12,11 @@ jobs:
      run: echo '${{ toJSON(github.event) }}' | jq   
      shell: bash
    - name: Create Comment
-     uses: peter-evans/create-or-update-comment@v1
-     with:
-      issue-number:  ${{ toJSON(github.event.issue.number) }}
-      body: |
-         This is a Multi line test comment
-         - with Github **Markdown** :Sparkles:
-         - Create by [create-or-update-comment] [1]
+     - name: Create comment
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          issue-number: ${{ toJSON(github.event.issue.number) }}
+          body: |
+            This is a multi-line test comment
+            - With GitHub **Markdown** :sparkles:
+            - Created by [create-or-update-comment][1]
