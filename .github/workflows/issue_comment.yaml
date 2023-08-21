@@ -10,3 +10,4 @@ jobs:
   steps:
    - name: "Action content"
      run: echo '${{ toJSON(github.event) }}' | jq   
+     shell: bash
